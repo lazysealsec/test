@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "chart-workbench": {
+      "command": "node",
+      "args": ["${workspaceFolder}/tools/editor-bootstrap.mjs", "--stdio"],
+      "env": {"CHART_LAB_ENABLE": "1", "PATH": "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"}
+    }
+  }
+}

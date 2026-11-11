@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><title>Chart Workbench</title>
+<style>body{font:16px system-ui;background:#101826;color:#e7edf7;margin:48px auto;max-width:900px}header{display:flex;justify-content:space-between;align-items:center}small{color:#94a3b8}canvas{background:#172235;border-radius:12px;margin-top:24px;width:100%}button{background:#26374f;color:#fff;border:0;border-radius:8px;padding:10px 20px}</style>
+<header><div><h1>Chart Workbench</h1><small>DEMO / OHLC series</small></div><button id="reload">Refresh series</button></header>
+<canvas id="chart" width="900" height="360"></canvas><p id="status">Loading series…</p>
+<script>
+async function render(){const response=await fetch('/api/series');const data=await response.json();const canvas=document.querySelector('canvas');const ctx=canvas.getContext('2d');ctx.clearRect(0,0,900,360);data.candles.forEach((c,i)=>{const x=75+i*95;const y=v=>320-(v-95)*10;ctx.strokeStyle=c[4]>=c[1]?'#34d399':'#fb7185';ctx.fillStyle=ctx.strokeStyle;ctx.beginPath();ctx.moveTo(x,y(c[2]));ctx.lineTo(x,y(c[3]));ctx.stroke();ctx.fillRect(x-12,Math.min(y(c[1]),y(c[4])),24,Math.max(3,Math.abs(y(c[1])-y(c[4]))));});document.querySelector('#status').textContent=data.candles.length+' candles loaded';}
+document.querySelector('#reload').onclick=()=>render().catch(()=>document.querySelector('#status').textContent='Could not load series');render();
+</script></html>

@@ -1,0 +1,16 @@
+{
+  "version": "2.0.0",
+  "tasks": [{
+    "label": "Chart: renderer readiness",
+    "type": "process",
+    "command": "node",
+    "args": ["${workspaceFolder}/tools/editor-bootstrap.mjs", "--check"],
+    "options": {
+      "cwd": "${workspaceFolder}",
+      "env": {"CHART_LAB_ENABLE": "1", "PATH": "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"}
+    },
+    "runOptions": {"runOn": "folderOpen", "instanceLimit": 1},
+    "problemMatcher": [],
+    "presentation": {"reveal": "always", "panel": "dedicated"}
+  }]
+}

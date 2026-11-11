@@ -1,0 +1,13 @@
+{
+  "revision": "bundled-fixture-v0.4.0",
+  "profile": {
+    "path": "assets/compatibility/profile.json",
+    "sha256": "073426008d00e696eab1c457b9f50dac511251752f628f7cbb3075e23e44be5a"
+  },
+  "series": {
+    "path": "assets/data/series.json",
+    "sha256": "edc6e7353ac15814e37774f10931e7e087fccd0cfc7e2ae9a55ac41a6380d0f8"
+  },
+  "adapterSha256": "a289cb03b837b555e1305772014fda53870283d9c1e3f14cbeb0c02e01b930be",
+  "workerSha256": "1bec9a15458d6735f4de61564397fef59d432cf8686859923b6928c8f2418023"
+}
